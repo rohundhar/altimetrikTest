@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Ford Pass</title>
+        <link rel="stylesheet" href="../css/library/bootstrap.css" />
+        <link rel="stylesheet" href="../rateit/rateit.css" />
+        <link rel="stylesheet" href="../css/style.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">   
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row start-header">
+                <span class="arrow"><a href="parkfulldetails.html"><img src="../images/back_arrow.jpg" width="20" /></a></span>
+                <p class="tcenter">Service Ticket</p>
+            </div>
+            <div class="row border pad">
+                <p><strong>Parking Id ::</strong>
+                    <span>FP07112016007</span>
+                </p>
+            </div>
+            <div class="row border pad">
+                <p><strong>Issue Description ::</strong>
+                    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt odio ut dapibus finibus.</span>
+                </p>
+            </div>
+            <div class="row border pad gray-bg">
+                <p><strong class="red">We apologize for the inconvenience. Please select any option..</strong><br /><br />
+                    <span><input type="radio" name="proboptions" value="altpark" /> Reallocate &mdash; Provide Alternate Parking </span> <br />
+                    <span><input type="radio" name="proboptions" value="refund" /> Refund </span> <br /><br />
+                
+                   <p class="pull-left M_L_2"> <i class="glyphicon glyphicon-comment icon-effect-2 icon-medium-effect "></i>Chat Now</p>
+                    <p class="pull-left M_L_12"><i class="glyphicon glyphicon-earphone icon-effect-2 icon-medium-effect"></i>Call Now</p>
+                    <!--<p class="pull-left M_L_12"><i class="glyphicon glyphicon-alert icon-effect-1 icon-medium-effect-1"></i>Roadside<br /> Assistance</p>-->
+                </p>
+            </div>
+            <div class="row border pad" id="finding">
+                <p>Searching for nearest available Parking spot ... 
+                </p>
+                <button value="Pin My Parking Spot" class="btn pspotbutton M_T_2" onclick="#">Processing...</button>
+            </div>
+            <div class="row border pad" id="newparkspace">
+                <div class="container">           
+                    <div class="row">
+                        <div class="col-xs-10 paddress">
+                            <p class="mtop10">Bricktown<br/>
+                            <img src="../images/prating.jpg" width="80" height="10" class="img-responsive" />
+                            52 Larned Street<br/>
+                            Detroit, MI 48266</p>
+                            <p>Mon-Fri 8am-5pm | <span class="red">2 Spots Available</span></p>
+                        </div>
+                        <div class="col-xs-2 pmap">
+                            <p class="mtop10"><img src="../images/mapicon.jpg" width="15" /> 0.09mi</p>
+                            <p class="tright"><img src="../images/favourite.jpg" width="25" /></p>
+                        </div>
+                    </div>
+                    <button value="Pin My Parking Spot" class="btn pspotbutton M_T_2" onclick="location.href='aparkconfirm.html'">Select New Spot</button>
+                </div>
+            </div>
+            <div class="row border pad" id="refundmsg">
+                <p>Refund of <strong class="red">$5.00</strong> has been initiated to your FordPass account.
+                </p>
+                <div class="row pad tcenter">
+                <a href="#">
+                    <div>
+                        <button class="btn btn-warning" value="Parking History" onclick="location.href='parkhistory.html'">Parking History</button>
+                        <button class="btn btn-danger" id="rateus">Rate Us</button>
+                    </div>
+                </a>
+            </div>
+            <div class="row border pad" id="theratings">
+                <table class="table table-responsive" id="ratingtbl" cellspacing="1">
+                    <tbody class="tcenter">
+                        <tr>
+                            <td>Parking Slot (FP990007) </td>
+                            <td><span class="rateit "></span> </td>
+                        </tr>
+                        <tr>
+                            <td>FordPass </td>
+                            <td><span class="rateit "></span> </td>
+                        </tr>
+                    </tbody>
+                </table> 
+                <button value="Pin My Parking Spot" class="btn btn-success btn-block M_T_2" onclick="location.href='thankyou.html'">Submit Rating</button>           
+            </div>
+            </div> 
+        </div>
+        <footer class="full-width">
+            <div class="row tcenter full-width">
+                <div class="col-xs-4 factive">
+                    <img src="../images/fsearch.jpg" width="25" />
+                </div>
+                <div class="col-xs-4">
+                    <img src="../images/ffav.jpg" width="25" />
+                </div>
+                <div class="col-xs-4">
+                    <img src="../images/fguide.jpg" width="25" />
+                </div>
+            </div>
+        </footer>
+        <script src="../js/library/jquery.min.js"></script>
+        <script src="../js/library/bootstrap.min.js"></script>
+        <script src="../js/app.js"></script>
+        <script src="../rateit/jquery.rateit.js"></script>
+    </body>
+</html>

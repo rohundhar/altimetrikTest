@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Ford Pass</title>
+        <link rel="stylesheet" href="../css/library/bootstrap.css" />
+        <link rel="stylesheet" href="../rateit/rateit.css" />
+        <link rel="stylesheet" href="../css/style.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">   
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row start-header">
+                <span class="arrow"><a href="serviceticket.html"><img src="../images/back_arrow.jpg" width="20" /></a></span>
+                <p class="tcenter">New Parking Lot Confirmation</p>
+            </div>
+            <div class="row img">
+                <h2 class="tcenter green"> Your <strong>New Parking</strong> is Confirmed !!! </h2>
+            </div>
+            <div class="row border pad3">
+                <p class="tcenter">Parking Id<br/>
+                    <span><strong>FP991111</strong></span>
+                </p>
+            </div>
+            <div class="row border pad">            
+            <div class="container">           
+                <div class="row">
+                    <div class="col-xs-8 paddress">
+                        <strong>
+                        <p class="mtop10">Bricktown.<br/>
+                        52 Larned Street<br/>
+                        Detroit, MI 48266</p>
+                        </strong>
+                    </div>
+                    <div class="col-xs-4 pmap">
+                        <p class="mtop10"><img src="../images/clock.png" width="15" /> 07/11/2016 Mon 8am-5pm</p>
+                        <p class="tright"><img src="../images/favourite.jpg" width="25" /></p>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="row border pad">
+                <a href="#">
+                    <div>
+                        <p><strong>Directions</strong></p>
+                    </div>
+                </a>
+            </div>
+            <div class="row img">
+                        <img src="../images/direction.jpg" class="img-responsive" alt="directions">
+            </div>            
+            <div class="row border pad3">
+                <p class="tcenter">Amount Paid by FordPass <strong>$5.00</strong></p>
+            </div>
+            <div class="row pad tcenter">
+                <a href="#">
+                    <div>
+                        <button class="btn btn-warning" value="Parking History" onclick="location.href='parkhistory.html'">Parking History</button>
+                        <button class="btn btn-danger" id="rateus">Rate Us</button>
+                    </div>
+                </a>
+            </div>
+            <div class="row border" id="theratings">
+                <table class="table table-responsive" id="ratingtbl" cellspacing="1">
+                    <tbody class="tcenter">
+                        <tr>
+                            <td>First Parking (FP990007) </td>
+                            <td>New Parking (FP991111) </td>
+                            <td>FordPass <span style="visibility:hidden">(FP991111)</span></td>
+                            
+                        </tr>
+                        <tr>
+                            <td><span class="rateit "></span> </td>
+                            <td><span class="rateit "></span> </td>
+                            <td><span class="rateit "></span> </td>
+                        </tr>
+                    </tbody>
+                </table> 
+                <button value="Pin My Parking Spot" class="btn btn-success btn-block M_T_2" onclick="location.href='thankyou.html'">Submit Rating</button>           
+            </div>
+        </div>
+        <footer class="full-width">
+            <div class="row tcenter full-width">
+                <div class="col-xs-4 factive">
+                    <img src="../images/fsearch.jpg" width="25" />
+                </div>
+                <div class="col-xs-4">
+                    <img src="../images/ffav.jpg" width="25" />
+                </div>
+                <div class="col-xs-4">
+                    <img src="../images/fguide.jpg" width="25" />
+                </div>
+            </div>
+        </footer>
+        <script src="../js/library/jquery.min.js"></script>
+        <script src="../js/library/bootstrap.min.js"></script>
+        <script src="../rateit/jquery.rateit.js"></script>
+        <script src="../js/app.js"></script>
+    </body>
+</html>

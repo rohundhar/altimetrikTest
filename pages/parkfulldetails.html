@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Ford Pass</title>
+        <link rel="stylesheet" href="../css/library/bootstrap.css" />
+        <link rel="stylesheet" href="../rateit/rateit.css" />
+        <link rel="stylesheet" href="../css/style.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">   
+    </head>
+    <body onload="loginSalesforce()">
+
+        <script type="text/javascript">
+            function loginSalesforce(){
+                var request = new XMLHttpRequest();
+
+                var client_id = "3MVG9Km_cBLhsuPz64ndIorsnNZWr1IYg_udMlNtexUI_0BKxrkQsEwouyVmvgwlCLEZvsUpnjVgr3Gqvwped";
+                var client_secret = "6078691371474040753";
+                var username = "gfalco@altimetrik.com.snapin";
+                var password = "salesforce1Kp3TUwMmYmD1j99AoUMuHUtx";
+
+
+
+                request.open("POST","https://na3.my.salesforce.com/services/oauth2/token" , true);
+                request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                request.send("client_id="+client_id+"&client_secret="+client_secret+"&grant_type=password&username="+username+"&password="+password);
+                // These lines of code initialize the httprequest object and send information in order to receive the proper JSON data 
+                request.onreadystatechange = function() {
+                    console.log("Waiting for server...");
+                    console.log(request.readyState);
+                    if (request.readyState == 4){
+                         parsedData = JSON.parse(request.responseText);
+                         console.log("Response Text: " + parsedData);
+                    }
+                } 
+            }
+
+        </script>
+        <div class="container-fluid">
+            <div class="row start-header">
+                <span class="arrow"><a href="parkdetails.html"><img src="../images/back_arrow.jpg" width="20" /></a></span>
+                <p class="tcenter">Confirmed Parking Details</p>
+            </div>
+            <div class="row border pad3">
+                <p class="tcenter">Parking Id<br/>
+                    <span><strong>FP07112016007</strong></span>
+                </p>
+            </div>
+            <div class="row border pad">
+            
+            <div class="container">
+                <div class="row img">
+                    <img src="../images/park_spot.jpg" class="img-responsive" />
+                </div><br />
+                <div class="row">
+                    <div class="col-xs-8 paddress">
+                        <strong>
+                        <p class="mtop10">Park-Rite, Inc.<br/>
+                        520 Larned Street<br/>
+                        Detroit, MI 48266</p>
+                        </strong>
+                    </div>
+                    <div class="col-xs-4 pmap">
+                        
+                        <p class="tright"><img src="../images/favourite.jpg" width="25" /></p>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="row border pad">
+                <a href="#">
+                    <div>
+                        <p class="mtop10"><img src="../images/clock.png" width="15" /> 07/11/2016 Mon 8am-5pm</p>
+                    </div>
+                </a>
+            </div>           
+            <div class="row border pad3 ">
+                <p class="tcenter red">Amount Paid <strong>$5.00</strong></p>
+            </div>
+             <div class="row pad">
+                <a href="#">
+                    <div>
+                        <button class="btn btn-warning" id="ratebtn">Rate Parking</button>
+                        <button class="btn btn-danger" id="issuebtn">Report Issue</button>
+                    </div>
+                </a>
+            </div>
+            <div class="row border pad3" id="rateparking">
+                <div class="rateit">
+                </div>
+            </div>
+            <div class="row border pad3" id="reportparking">
+                <label for="issuetype">Issue Type:</label>
+                <select class="form-control" name="issuetype" id="issuetype">
+                    <option selected="" value="">Select</option>
+                    <option value="Parking Spot Taken">Parking Spot Taken</option>
+                    <option value="Double Parked- unable to park">Double Parked- unable to park</option>
+                    <option value="Entry Blocked">Entry Blocked</option>
+                </select><br /> 
+                <textarea class="form-control" name="issuenotes" cols="20" rows="3" placeholder="Issue Description"></textarea><br />
+                <span>Upload Picture &nbsp;<img src="../images/camera.png" width="20" /></span><br /><br />
+                <button class="btn btn-primary btn-block" value="Submit" onclick="location.href='serviceticket.html'">Submit</button>
+            </div>       
+        </div>
+        <footer class="full-width">
+            <div class="row tcenter full-width">
+                <div class="col-xs-4 factive">
+                    <img src="../images/fsearch.jpg" width="25" />
+                </div>
+                <div class="col-xs-4">
+                    <img src="../images/ffav.jpg" width="25" />
+                </div>
+                <div class="col-xs-4">
+                    <img src="../images/fguide.jpg" width="25" />
+                </div>
+            </div>
+        </footer>
+        <script src="../js/library/jquery.min.js"></script>
+        <script src="../js/library/bootstrap.min.js"></script>
+        <script src="../js/app.js"></script>
+        <script src="../rateit/jquery.rateit.js"></script>
+    </body>
+</html>
