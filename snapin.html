@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC"-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script>
+var data = '00D50000000adDr!ARwAQDho9PhEi5oB9AdWz2n6r7pncKOQ1BrzXwb0ECcbbnP5ajztWiTq18W_td4TeweAINL0MPfdPS8UBEmhCr_KvF5xuvdS';
+data = '00D50000000adDr!ARwAQGnJ477g_dLOR52w6U0Im6Iku6iMoEEH2V.NrX8LgZuIQ9Qe8GPAAoFUQG09t0gROkFuMs4EHBGV1tKz0Cf_9sqw6mzV;'
+$(document).ready(function(){
+    $("button").click(function(){
+     $.ajax({
+        type: "GET",
+        contentType: 'application/json',
+        url:'https://sfdc-cors.herokuapp.com/services/apexrest/alti_snapin/FieldCase/',  
+        cache :false,
+          headers: {'Authorization': 'Bearer '+data},
+        dataType: 'json',
+        success: function (data) {
+            alert(data);
+        },
+        error : function(jqXHR, textStatus, errorThrown) {
+        	debugger;
+            console.log('Error: '+jqXHR.status);
+            console.log('textStatus: '+textStatus)
+           } 
+     });
+  });    
+});
+
+    
+</script>
+</head>
+<body>
+
+<div id="div1"><h2>Salesforce connectivity test</h2></div>
+
+<button>Get Case Types</button>
+
+
+</body>
+</html>
