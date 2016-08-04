@@ -11,6 +11,30 @@
 
         <script type="text/javascript">
             function loginSalesforce(){
+                $.ajax({
+                        type: 'POST',
+                        crossOrigin: true,
+                        url: 'https://sfdc-cors.herokuapp.com/services/oauth2/token',
+                        dataType: 'json',
+                        cache :false,
+                        data : {
+                            "grant_type"    : "password",
+                            "client_id"     : "3MVG9Km_cBLhsuPz64ndIorsnNZWr1IYg_udMlNtexUI_0BKxrkQsEwouyVmvgwlCLEZvsUpnjVgr3Gqvwped",
+                            "client_secret" : "6078691371474040753",
+                            "username"      : "ajay.krj@altimetrik.com.snapin",
+                            "password"      : "Maxpl0re1KFSn1rlMAOWJygr0E8jc9QTst"
+                        },
+                        success : function (data) {
+                            alert(data.access_token);
+                        },
+                        error : function (data, errorThrown,status) {
+                            alert(data.responseText);
+                        }
+                });
+
+
+
+                /*
                 var request = new XMLHttpRequest();
 
                 var client_id = "3MVG9Km_cBLhsuPz64ndIorsnNZWr1IYg_udMlNtexUI_0BKxrkQsEwouyVmvgwlCLEZvsUpnjVgr3Gqvwped";
@@ -31,7 +55,7 @@
                          parsedData = JSON.parse(request.responseText);
                          console.log("Response Text: " + parsedData);
                     }
-                } 
+                }  */
             }
 
         </script>
