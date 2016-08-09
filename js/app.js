@@ -39,9 +39,7 @@ $(document).ready(function(){
 
 
     var access_token;
-    console.log("try getvalues()");
-
-
+    console.log("new test");
 
 
 
@@ -51,7 +49,7 @@ $(document).ready(function(){
 function upsertCase(type, description){
         console.log("type from html: "+type);
         console.log("description from html: "+description);
-        
+
         var caseInfo = {
             "description" : description,
             "status" : "unresolved",
