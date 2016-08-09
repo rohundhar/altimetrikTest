@@ -42,7 +42,7 @@ $(document).ready(function(){
 
 
 
-    document.querySelector('.parkingId').innerHTML = parkingId;
+    document.querySelector('.parkingId').innerHTML = String(parkingId);
     //document.getElementById('parkingId') = parkingId;
 
 
