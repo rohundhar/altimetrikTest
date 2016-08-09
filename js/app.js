@@ -70,7 +70,7 @@ function upsertCase(type, description){
             data : caseInfoJson,
             success : function (dataa) {
                 console.log(dataa);
-                //location.href='../pages/serviceticket.html'
+                location.href='../pages/serviceticket.html'
             },
             error : function (data, errorThrown,status) {
                 alert('ERROR: ' + data);
@@ -121,6 +121,24 @@ function getvalues(){
         },
         error : function (data, errorThrown,status) {
             $('#token').text('ERROR: ' + data);
+        }
+    });
+}
+function upsertCaseGetRequest(){
+    $.ajax({
+
+        headers: {
+            "Authorization"    : "Bearer 00D50000000adDr!ARwAQJfmwqv4VpQCbjF6kWvWXa1IsHUSgWPGnBKblTPHY2qHQOOLYoHALd6gR5BMZG6MQjwE6Hp7bA86UDcQGsF6p_lGw11W"
+        },
+        type: 'GET',
+        url: 'https://sfdc-cors.herokuapp.com/services/apexrest/alti_snapin/FieldCase2?description=Done&city=Montevideo&parkingId=123UnPasito2',
+        data : {
+        },
+        success : function (dataa) {
+            alert(dataa);
+        },
+        error : function (data, errorThrown,status) {
+            alert(data);
         }
     });
 }
