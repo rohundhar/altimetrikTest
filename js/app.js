@@ -36,4 +36,59 @@ $(document).ready(function(){
          $("#theratings").css("display", "block");
          
     });
+
+
+    var access_token;
+    console.log("try getvalues()");
+    function loginSalesforce(){
+        $.ajax({
+                type: 'POST',
+                crossOrigin: true,
+                url: 'https://sfdc-cors.herokuapp.com/services/oauth2/token',
+                dataType: 'json',
+                cache :false,
+                data : {
+                    "grant_type"    : "password",
+                    "client_id"     : "3MVG9Km_cBLhsuPz64ndIorsnNZWr1IYg_udMlNtexUI_0BKxrkQsEwouyVmvgwlCLEZvsUpnjVgr3Gqvwped",
+                    "client_secret" : "6078691371474040753",
+                    "username"      : "ajay.krj@altimetrik.com.snapin",
+                    "password"      : "Maxpl0re1KFSn1rlMAOWJygr0E8jc9QTst"
+                },
+                success : function (data) {
+                    access_token = data.access_token;
+                    alert(data.access_token);
+                    getvalues();
+                },
+                error : function (data, errorThrown,status) {
+                    alert(data.responseText);
+                }
+        });
+    function getvalues(){
+        $.ajax({
+
+            headers: {
+                "Authorization"    : "Bearer "+access_token/*00D50000000adDr!ARwAQJfmwqv4VpQCbjF6kWvWXa1IsHUSgWPGnBKblTPHY2qHQOOLYoHALd6gR5BMZG6MQjwE6Hp7bA86UDcQGsF6p_lGw11W" */
+            },
+            type: 'GET',
+            crossOrigin: true,
+            url: 'https://sfdc-cors.herokuapp.com/services/apexrest/alti_snapin/FieldCase',
+            dataType: 'json',
+            cache :false,
+            data : {
+                
+            },
+            success : function (datas) {
+                alert(datas);
+            },
+            error : function (data, errorThrown,status) {
+                $('#token').text('ERROR: ' + data);
+            }
+        });
+    }
+
+
+
+
+
+
 });

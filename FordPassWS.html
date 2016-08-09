@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC"-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		<script>
+			$(document).ready(function(){
+			    $('#b1').click(function(){
+			        loginsf(function(data) { 
+			           $.ajax({
+			              type: "GET",
+			              contentType: 'application/json',
+			              url:'https://sfdc-cors.herokuapp.com/services/apexrest/alti_snapin/RestAPI/',  
+			              cache :false,
+			                headers: {'Authorization': 'Bearer '+data},
+			              dataType: 'json',
+			              success: function (data) {
+			                  alert(data);
+			              },
+			              error : function(data, textStatus, errorThrown) {
+			                alert(data);
+			              } 
+			           });
+			        });    
+			    });
+
+			});
+			
+			$(document).ready(function(){
+			    $('#b2').click(function(){
+			        getvalues();
+			    });});
+
+			$(document).ready(function(){
+			    $('#b3').click(function(){
+			        upsertCase();
+			    });});
+
+			$(document).ready(function(){
+			    $('#b4').click(function(){
+			        upsertCaseGetRequest();
+			    });});
+
+			function loginsf(fn){
+			     $.ajax({
+			            type: 'POST',
+			            crossOrigin: true,
+			            url: 'https://sfdc-cors.herokuapp.com/services/oauth2/token',
+			            dataType: 'json',
+			            cache :false,
+			            data : {
+			                "grant_type"    : "password",
+			                "client_id"     : "3MVG9Km_cBLhsuPz64ndIorsnNZWr1IYg_udMlNtexUI_0BKxrkQsEwouyVmvgwlCLEZvsUpnjVgr3Gqvwped",
+			                "client_secret" : "6078691371474040753",
+			                "username"      : "ajay.krj@altimetrik.com.snapin",
+			                "password"      : "Maxpl0re1KFSn1rlMAOWJygr0E8jc9QTst"
+			            },
+			            success : function (data) {
+			            	alert(data.access_token);
+			            },
+			            error : function (data, errorThrown,status) {
+			                alert(data.responseText);
+			            }
+			    });
+			}
+
+			function getvalues(){
+			    $.ajax({
+
+		            headers: {
+		                "Authorization"    : "Bearer 00D50000000adDr!ARwAQJfmwqv4VpQCbjF6kWvWXa1IsHUSgWPGnBKblTPHY2qHQOOLYoHALd6gR5BMZG6MQjwE6Hp7bA86UDcQGsF6p_lGw11W"
+		            },
+		            type: 'GET',
+		            crossOrigin: true,
+		            url: 'https://sfdc-cors.herokuapp.com/services/apexrest/alti_snapin/FieldCase',
+		            dataType: 'json',
+		            cache :false,
+		            data : {
+		                
+		            },
+		            success : function (datas) {
+		                alert(datas);
+		            },
+		            error : function (data, errorThrown,status) {
+		                $('#token').text('ERROR: ' + data);
+		            }
+			    });
+			}
+
+			function upsertCase(){
+				var caseInfo = {
+					"description" : "White eraser",
+					"city" : "Salto",
+					"parkingId" : "123UnPasito2"  
+				}
+
+				var caseInfoJson = JSON.stringify(caseInfo);
+
+			    $.ajax({
+
+		            headers: {
+		                "Authorization"    : "Bearer 00D50000000adDr!ARwAQJfmwqv4VpQCbjF6kWvWXa1IsHUSgWPGnBKblTPHY2qHQOOLYoHALd6gR5BMZG6MQjwE6Hp7bA86UDcQGsF6p_lGw11W",
+		                "Content-Type" : "application/json"
+		            },
+		            type: 'POST',
+		            url: 'https://sfdc-cors.herokuapp.com/services/apexrest/alti_snapin/FieldCase',
+		            data : caseInfoJson,
+		            success : function (dataa) {
+		                alert(dataa);
+		            },
+		            error : function (data, errorThrown,status) {
+		                alert('ERROR: ' + data);
+		            }
+			    });
+			}
+
+			function upsertCaseGetRequest(){
+			    $.ajax({
+
+		            headers: {
+		                "Authorization"    : "Bearer 00D50000000adDr!ARwAQJfmwqv4VpQCbjF6kWvWXa1IsHUSgWPGnBKblTPHY2qHQOOLYoHALd6gR5BMZG6MQjwE6Hp7bA86UDcQGsF6p_lGw11W"
+		            },
+		            type: 'GET',
+		            url: 'https://sfdc-cors.herokuapp.com/services/apexrest/alti_snapin/FieldCase2?description=Done&city=Montevideo&parkingId=123UnPasito2',
+		            data : {
+		            },
+		            success : function (dataa) {
+		                alert(dataa);
+		            },
+		            error : function (data, errorThrown,status) {
+		                alert(data);
+		            }
+			    });
+			}
+			    
+		</script>
+	</head>
+
+	<body>
+		<div id="div1"><h2>Ford Pass WS testing</h2></div>
+		<button id="b1">Get session id</button>
+		<button id="b2">Get values</button>
+		<button id="b3">Upsert Case</button>
+		<button id="b4">Upsert Case Get Request</button>
+	</body>
+</html>
