@@ -37,7 +37,7 @@ $(document).ready(function(){
          
     });
 
-
+    var parkingId;
     var access_token;
     console.log("new test");
 
@@ -46,14 +46,18 @@ $(document).ready(function(){
 
 
 });
+function generateId(){
+        var id = Math.floor((Math.random() * 3986371923));
+        return id;
+}
 function upsertCase(type, description){
         console.log("type from html: "+type);
         console.log("description from html: "+description);
-
+        parkingId = generateId();
         var caseInfo = {
             "description" : description,
             "status" : "unresolved",
-            "parkingId" : "123UnPasito2",
+            "parkingId" : parkingId,
             "type": type
         }
 
