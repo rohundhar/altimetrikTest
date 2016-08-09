@@ -40,6 +40,14 @@ $(document).ready(function(){
 
     var access_token;
     console.log("try getvalues()");
+
+
+
+
+
+
+
+});
     function loginSalesforce(){
         $.ajax({
                 type: 'POST',
@@ -86,10 +94,3 @@ $(document).ready(function(){
             }
         });
     }
-
-
-
-
-
-
-});
