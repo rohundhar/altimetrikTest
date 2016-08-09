@@ -63,6 +63,7 @@ $(document).ready(function(){
                     alert(data.responseText);
                 }
         });
+    }
     function getvalues(){
         $.ajax({
 
