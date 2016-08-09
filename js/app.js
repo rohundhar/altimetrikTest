@@ -42,8 +42,8 @@ $(document).ready(function(){
 
 
 
-
-    document.getElementById('parkingId') = parkingId;
+    document.querySelector('.parkingId').innerHTML = parkingId;
+    //document.getElementById('parkingId') = parkingId;
 
 
 });
