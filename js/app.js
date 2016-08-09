@@ -48,8 +48,10 @@ $(document).ready(function(){
 
 
 });
-function upsertCase(type){
-        console.log("type from html"+type);
+function upsertCase(type, description){
+        console.log("type from html: "+type);
+        console.log("description from html: "+description);
+        
         var caseInfo = {
             "description" : description,
             "status" : "unresolved",
