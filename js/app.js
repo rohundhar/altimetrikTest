@@ -43,7 +43,7 @@ $(document).ready(function(){
 
 
 
-    document.getElementById('parkingId').innerHTML = parkingId;
+    document.getElementById('parkingId') = parkingId;
 
 
 });
