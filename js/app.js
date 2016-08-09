@@ -64,11 +64,12 @@ $(document).ready(function(){
                 },
                 success : function (data) {
                     access_token = data.access_token;
-                    alert(data.access_token);
+                    console.log(data.access_token);
                     getvalues();
                 },
                 error : function (data, errorThrown,status) {
-                    alert(data.responseText);
+                    console.log(data.responseText);
+                    //alert(data.responseText);
                 }
         });
     }
@@ -87,7 +88,7 @@ $(document).ready(function(){
                 
             },
             success : function (datas) {
-                alert(datas);
+                console.log(datas);
             },
             error : function (data, errorThrown,status) {
                 $('#token').text('ERROR: ' + data);
