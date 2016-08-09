@@ -36,13 +36,14 @@ $(document).ready(function(){
          $("#theratings").css("display", "block");
          
     });
-
     var parkingId;
     var access_token;
     console.log("new test");
 
 
 
+
+    document.getElementById('parkingId').innerHTML = parkingId;
 
 
 });
