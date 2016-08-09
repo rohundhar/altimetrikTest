@@ -48,50 +48,79 @@ $(document).ready(function(){
 
 
 });
-    function loginSalesforce(){
-        $.ajax({
-                type: 'POST',
-                crossOrigin: true,
-                url: 'https://sfdc-cors.herokuapp.com/services/oauth2/token',
-                dataType: 'json',
-                cache :false,
-                data : {
-                    "grant_type"    : "password",
-                    "client_id"     : "3MVG9Km_cBLhsuPz64ndIorsnNZWr1IYg_udMlNtexUI_0BKxrkQsEwouyVmvgwlCLEZvsUpnjVgr3Gqvwped",
-                    "client_secret" : "6078691371474040753",
-                    "username"      : "ajay.krj@altimetrik.com.snapin",
-                    "password"      : "Maxpl0re1KFSn1rlMAOWJygr0E8jc9QTst"
-                },
-                success : function (data) {
-                    access_token = data.access_token;
-                    console.log(data.access_token);
-                    getvalues();
-                },
-                error : function (data, errorThrown,status) {
-                    console.log(data.responseText);
-                    //alert(data.responseText);
-                }
-        });
-    }
-    function getvalues(){
+function upsertCase(type){
+        console.log("type from html"+type);
+        var caseInfo = {
+            "description" : description,
+            "status" : "unresolved",
+            "parkingId" : "123UnPasito2",
+            "type": type
+        }
+
+        var caseInfoJson = JSON.stringify(caseInfo);
+
         $.ajax({
 
             headers: {
-                "Authorization"    : "Bearer "+access_token/*00D50000000adDr!ARwAQJfmwqv4VpQCbjF6kWvWXa1IsHUSgWPGnBKblTPHY2qHQOOLYoHALd6gR5BMZG6MQjwE6Hp7bA86UDcQGsF6p_lGw11W" */
+                "Authorization"    : "Bearer "+access_token/*00D50000000adDr!ARwAQJfmwqv4VpQCbjF6kWvWXa1IsHUSgWPGnBKblTPHY2qHQOOLYoHALd6gR5BMZG6MQjwE6Hp7bA86UDcQGsF6p_lGw11W */,
+                "Content-Type" : "application/json"
             },
-            type: 'GET',
-            crossOrigin: true,
+            type: 'POST',
             url: 'https://sfdc-cors.herokuapp.com/services/apexrest/alti_snapin/FieldCase',
-            dataType: 'json',
-            cache :false,
-            data : {
-                
-            },
-            success : function (datas) {
-                console.log(datas);
+            data : caseInfoJson,
+            success : function (dataa) {
+                console.log(dataa);
+                //location.href='../pages/serviceticket.html'
             },
             error : function (data, errorThrown,status) {
-                $('#token').text('ERROR: ' + data);
+                alert('ERROR: ' + data);
             }
         });
     }
+function loginSalesforce(){
+    $.ajax({
+            type: 'POST',
+            crossOrigin: true,
+            url: 'https://sfdc-cors.herokuapp.com/services/oauth2/token',
+            dataType: 'json',
+            cache :false,
+            data : {
+                "grant_type"    : "password",
+                "client_id"     : "3MVG9Km_cBLhsuPz64ndIorsnNZWr1IYg_udMlNtexUI_0BKxrkQsEwouyVmvgwlCLEZvsUpnjVgr3Gqvwped",
+                "client_secret" : "6078691371474040753",
+                "username"      : "ajay.krj@altimetrik.com.snapin",
+                "password"      : "Maxpl0re1KFSn1rlMAOWJygr0E8jc9QTst"
+            },
+            success : function (data) {
+                access_token = data.access_token;
+                console.log(data.access_token);
+                getvalues();
+            },
+            error : function (data, errorThrown,status) {
+                console.log(data.responseText);
+                //alert(data.responseText);
+            }
+    });
+}
+function getvalues(){
+    $.ajax({
+
+        headers: {
+            "Authorization"    : "Bearer "+access_token/*00D50000000adDr!ARwAQJfmwqv4VpQCbjF6kWvWXa1IsHUSgWPGnBKblTPHY2qHQOOLYoHALd6gR5BMZG6MQjwE6Hp7bA86UDcQGsF6p_lGw11W" */
+        },
+        type: 'GET',
+        crossOrigin: true,
+        url: 'https://sfdc-cors.herokuapp.com/services/apexrest/alti_snapin/FieldCase',
+        dataType: 'json',
+        cache :false,
+        data : {
+            
+        },
+        success : function (datas) {
+            console.log(datas);
+        },
+        error : function (data, errorThrown,status) {
+            $('#token').text('ERROR: ' + data);
+        }
+    });
+}

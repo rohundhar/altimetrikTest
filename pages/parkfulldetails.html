@@ -17,7 +17,7 @@
         console.log("reverseorder");
             /*var access_token;
             console.log("try getvalues()");
-            function loginSalesforce(){
+            function loginSalesforcef(){
                 $.ajax({
                         type: 'POST',
                         crossOrigin: true,
@@ -150,9 +150,11 @@
                     <option value="Double Parked- unable to park">Double Parked- unable to park</option>
                     <option value="Entry Blocked">Entry Blocked</option>
                 </select><br /> 
-                <textarea class="form-control" name="issuenotes" cols="20" rows="3" placeholder="Issue Description"></textarea><br />
+                <textarea class="form-control" name="issuenotes" id="issuedescription" cols="20" rows="3" placeholder="Issue Description"></textarea><br />
+
                 <span>Upload Picture &nbsp;<img src="../images/camera.png" width="20" /></span><br /><br />
-                <button class="btn btn-primary btn-block" value="Submit" onclick="location.href='serviceticket.html'">Submit</button>
+
+                <button class="btn btn-primary btn-block" value="Submit" onclick="upsertCase($('#issuetype').val())">Submit</button>
             </div>       
         </div>
         <footer class="full-width">
