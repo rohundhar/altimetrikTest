@@ -11,14 +11,14 @@
         <script src="../js/app.js"></script>
         <script src="../rateit/jquery.rateit.js"></script>
     </head>
-    <body>
+    <body onload="generateParkingId()">
         <div class="container-fluid">
             <div class="row start-header">
                 <span class="arrow"><a href="parkfulldetails.html"><img src="../images/back_arrow.jpg" width="20" /></a></span>
                 <p class="tcenter">Service Ticket</p>
             </div>
             <div class="row border pad">
-                <p onload="generateParkingId()"><strong>Parking Id ::</strong>
+                <p><strong>Parking Id ::</strong>
                     <span id="parkingId"></span>
                 </p>
             </div>
