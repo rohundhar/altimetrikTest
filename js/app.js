@@ -37,7 +37,7 @@ $(document).ready(function(){
          
     });
     var access_token;
-    console.log("innerHTML test 6");
+    console.log("innerHTML test 7");
 
     function generateParkingId(){
         var parkingId = generateId();
@@ -139,7 +139,7 @@ function getvalues(){
         },
         success : function (datas) {
             console.log(datas);
-            JSON.parse(datas);
+            datas = JSON.parse(datas);
             generateIssueTypes(datas);
         },
         error : function (data, errorThrown,status) {
