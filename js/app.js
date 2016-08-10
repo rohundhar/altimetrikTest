@@ -86,8 +86,6 @@ function upsertCase(type, description){
             data : caseInfoJson,
             success : function (dataa) {
                 console.log(dataa);
-                dataa = JSON.parse(dataa);
-                console.log(dataa);
                 sessionStorage.setItem("case_id", dataa);
                 location.href='../pages/serviceticket.html'
             },
