@@ -33,7 +33,9 @@
                 liveagent.showWhenOffline('57350000000L3RP', document.getElementById('liveagent_button_offline_57350000000L3RP'));              
             });
             var id = sessionStorage.getItem("parkingId");
+            var case_id = sessionStorage.getItem("case_id");
             console.log("check the id:"+id);
+            console.log("check case number:"+case_id);
         liveagent.addCustomDetail("Parking Id", id);
 
         /* Creates a custom detail called First Name and sets the value to "Jane" */
@@ -45,13 +47,15 @@
         /* Creates a custom detail called Phone Number and sets the value to "555-1212" */
         liveagent.addCustomDetail("Phone Number", "415-555-1212");
 
+        liveagent.addCustomDetail("Case Number", case_id);
+
 
         /* This does a non-exact search on cases by the value of the "Case Subject" custom detail.
             If no results are found, it will create a case and set the case's subject and status
             The case that's found or created will be associated to the chat and the case will open in
             the Console for the agent when the chat is accepted */
-        liveagent.findOrCreate("Case").map("Parking_Id__c","Parking Id",true,true,true);
-
+        liveagent.findOrCreate("Case").map("Parking_Id__c","Parking Id",true,true,false);
+        liveagent.findOrCreate("Case").map("CaseNumber", "Case Number", true, true, false);
         /* The contact that's found or created will be saved or associated to the chat transcript.
         The contact will be opened for the agent in the Console and the case is linked to the contact record */
         liveagent.findOrCreate("Contact").saveToTranscript("ContactId").showOnCreate().linkToEntity("Case","ContactId");
@@ -98,7 +102,6 @@
                         Chat Now
                         <script type="text/javascript"> 
                         function showChat(){
-                            console.log("OPENING CHAT");
                             $('#chatWindow').show()
                         }
                         </script>
