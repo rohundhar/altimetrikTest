@@ -41,7 +41,7 @@ $(document).ready(function(){
 
     function generateParkingId(){
         var parkingId = generateId();
-        console.log(parkingId);
+        console.log("Parking iD is:"+parkingId);
         document.getElementById('parkingId').innerHTML = parkingId;
     }
 
