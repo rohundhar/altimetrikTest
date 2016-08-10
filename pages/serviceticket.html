@@ -56,10 +56,10 @@
             If no results are found, it will create a case and set the case's subject and status
             The case that's found or created will be associated to the chat and the case will open in
             the Console for the agent when the chat is accepted */
-        liveagent.findOrCreate("Case").map("Parking_Id__c","Parking Id",true,true,false).map("Status","Case Status",false,false,true).saveToTranscript("CaseId").showOnCreate();
+        liveagent.findOrCreate("Case").map("Parking_Id__c","Parking Id",true,false,true).map("Status","Case Status",false,false,true).saveToTranscript("CaseId").showOnCreate();
 
 
-        liveagent.findOrCreate("Case").map("CaseNumber", "Case Number", true, true, false).map("Status","Case Status",false,false,true).saveToTranscript("CaseId").showOnCreate();
+        liveagent.findOrCreate("Case").map("CaseNumber", "Case Number", true, false, true).map("Status","Case Status",false,false,true).saveToTranscript("CaseId").showOnCreate();
 
         /* The contact that's found or created will be saved or associated to the chat transcript.
         The contact will be opened for the agent in the Console and the case is linked to the contact record */
