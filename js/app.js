@@ -1,5 +1,4 @@
-var access_token;
-var parkingId;
+
 $(document).ready(function(){
     $("#rateparking").css("display", "none");
     $("#reportparking").css("display", "none");
@@ -40,19 +39,20 @@ $(document).ready(function(){
     });
 
     console.log("innerHTML test 12");
-
+    var access_token;
+    var parkingId;
+    function generateParkingId(){
+        //parkingId = generateId();
+        //parkingId = "FP"+parkingId;
+        console.log("Parking iD is:"+parkingId);
+        document.getElementById('parkingId').innerHTML = parkingId;
+    }
 
     //document.querySelector('.parkingId').innerHTML = String(parkingId);
 
 
 });
 
-function generateParkingId(){
-    //parkingId = generateId();
-    //parkingId = "FP"+parkingId;
-    console.log("Parking iD is:"+parkingId);
-    document.getElementById('parkingId').innerHTML = parkingId;
-}
 function generateId(){
         console.log("ID GENERATED");
         var id = Math.floor((Math.random() * 3986371923));
