@@ -34,7 +34,7 @@
             });
             var id = sessionStorage.getItem("parkingId");
             var case_id = sessionStorage.getItem("case_id");
-            console.log("check the id:"+id);
+            console.log("check the parking id:"+id);
             console.log("check case number:"+case_id);
         liveagent.addCustomDetail("Parking Id", id);
 
@@ -55,7 +55,10 @@
             The case that's found or created will be associated to the chat and the case will open in
             the Console for the agent when the chat is accepted */
         liveagent.findOrCreate("Case").map("Parking_Id__c","Parking Id",true,true,false);
-        liveagent.findOrCreate("Case").map("CaseNumber", "Case Number", true, true, false);
+
+
+        liveagent.findOrCreate("Case").map("CaseNumber", "Case Number", true, true, false).saveToTranscript("CaseId").showOnCreate();
+
         /* The contact that's found or created will be saved or associated to the chat transcript.
         The contact will be opened for the agent in the Console and the case is linked to the contact record */
         liveagent.findOrCreate("Contact").saveToTranscript("ContactId").showOnCreate().linkToEntity("Case","ContactId");
