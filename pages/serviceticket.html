@@ -50,20 +50,26 @@
         liveagent.addCustomDetail("Case Number", case_id);
 
 
+        liveagent.addCustomDetail("Case Subject", "Parking Spot Taken").doKnowledgeSearch();
 
-//liveagent.findOrCreate("Case").map("Subject","Case Subject",true,false,true).map("Status","Case Status",false,false,true).saveToTranscript("CaseId").showOnCreate();
+        /* Creates a custom detail called Case Status and sets the value to "New" */
+        liveagent.addCustomDetail("Case Status", "New");
+
+
+        //liveagent.findOrCreate("Case").map("Subject","Case Subject",true,false,true).map("Status","Case Status",false,false,true).saveToTranscript("CaseId").showOnCreate();
         /* This does a non-exact search on cases by the value of the "Case Subject" custom detail.
             If no results are found, it will create a case and set the case's subject and status
             The case that's found or created will be associated to the chat and the case will open in
             the Console for the agent when the chat is accepted */
-        liveagent.findOrCreate("Case").map("Parking_Id__c","Parking Id",true,false,true).map("Status","Case Status",false,false,true).saveToTranscript("CaseId").showOnCreate();
+        liveagent.findOrCreate("Case").map("alti_snapin__Parking_Id__c","Parking Id",false,false,true).saveToTranscript("CaseId").showOnCreate();
 
 
-        liveagent.findOrCreate("Case").map("CaseNumber", "Case Number", true, false, true).map("Status","Case Status",false,false,true).saveToTranscript("CaseId").showOnCreate();
+        liveagent.findOrCreate("Contact").map("FirstName", "First Name", true, true, true).map("LastName", "Last Name", true, true, true).map("Phone", "Phone Number", false, false, true);
+
 
         /* The contact that's found or created will be saved or associated to the chat transcript.
         The contact will be opened for the agent in the Console and the case is linked to the contact record */
-        liveagent.findOrCreate("Contact").saveToTranscript("ContactId").showOnCreate().linkToEntity("Case","ContactId");
+       // liveagent.findOrCreate("Contact").saveToTranscript("ContactId").showOnCreate().linkToEntity("Case","ContactId");
         </script>
 
 
