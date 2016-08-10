@@ -37,7 +37,7 @@ $(document).ready(function(){
          
     });
     var access_token;
-    console.log("innerHTML test 8");
+    console.log("innerHTML test 9");
 
 
 
@@ -51,6 +51,7 @@ function generateParkingId(){
     document.getElementById('parkingId').innerHTML = parkingId;
 }
 function generateId(){
+        console.log("ID GENERATED");
         var id = Math.floor((Math.random() * 3986371923));
         return id;
 }
