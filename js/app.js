@@ -36,14 +36,15 @@ $(document).ready(function(){
          $("#theratings").css("display", "block");
          
     });
-    var parkingId;
     var access_token;
-    console.log("innerHTML test 4");
+    console.log("innerHTML test 5");
 
-
+    function generateParkingId(){
+        var parkingId = generateId();
+        document.getElementById('parkingId').innerHTML = parkingId;
+    }
 
     //document.querySelector('.parkingId').innerHTML = String(parkingId);
-    document.getElementById('parkingId').innerHTML = JSON.stringify(parkingId);
 
 
 });
