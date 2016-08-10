@@ -85,6 +85,7 @@ function upsertCase(type, description){
             url: 'https://sfdc-cors.herokuapp.com/services/apexrest/alti_snapin/FieldCase',
             data : caseInfoJson,
             success : function (dataa) {
+                console.log(dataa);
                 dataa = JSON.parse(dataa);
                 console.log(dataa);
                 sessionStorage.setItem("case_id", dataa);
