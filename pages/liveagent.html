@@ -1,0 +1,50 @@
+<html>
+	<head>
+		<title>FordPass chat</title>
+		<script type='text/javascript' src='https://c.la1-c2-phx.salesforceliveagent.com/content/g/js/37.0/deployment.js'></script>
+		<script type='text/javascript'>
+			liveagent.init('https://d.la1-c2-phx.salesforceliveagent.com/chat', '57250000000L2u6', '00D50000000adDr');
+		</script>
+	</head>
+	<body>
+
+		<!-- Online chat -->
+		<a id="liveagent_button_online_57350000000L3RP" href="javascript://Chat" style="display: none;" onclick="liveagent.startChat('57350000000L3RP')">
+			<img src="chat.png" alt="Start chat" title="Start chat" style="max-width: 300px;"/>
+		</a>
+
+		<!-- Offline chat -->
+		<div id="liveagent_button_offline_57350000000L3RP" style="display: none;">
+			<img src="offline.png" alt="Chat is offline" title="Chat is offline" style="max-width: 300px;"/></div>
+		<script type="text/javascript">
+			if (!window._laq) { window._laq = []; }
+			window._laq.push(function(){
+				liveagent.showWhenOnline('57350000000L3RP', document.getElementById('liveagent_button_online_57350000000L3RP'));
+				liveagent.showWhenOffline('57350000000L3RP', document.getElementById('liveagent_button_offline_57350000000L3RP'));				
+			});
+			var id = sessionStorage.getItem("parkingId");
+			console.log("check the id:"+id);
+		liveagent.addCustomDetail("Parking Id", id);
+
+		/* Creates a custom detail called First Name and sets the value to "Jane" */
+		liveagent.addCustomDetail("First Name", "John");
+
+		/* Creates a custom detail called Last Name and sets the value to "Doe" */
+		liveagent.addCustomDetail("Last Name", "Doe");
+
+		/* Creates a custom detail called Phone Number and sets the value to "555-1212" */
+		liveagent.addCustomDetail("Phone Number", "415-555-1212");
+
+
+		/* This does a non-exact search on cases by the value of the "Case Subject" custom detail.
+			If no results are found, it will create a case and set the case's subject and status
+			The case that's found or created will be associated to the chat and the case will open in
+			the Console for the agent when the chat is accepted */
+		liveagent.findOrCreate("Case").map("Parking_Id__c","Parking Id",true,true,true);
+
+		/* The contact that's found or created will be saved or associated to the chat transcript.
+		The contact will be opened for the agent in the Console and the case is linked to the contact record */
+		liveagent.findOrCreate("Contact").saveToTranscript("ContactId").showOnCreate().linkToEntity("Case","ContactId");
+		</script>
+	</body>
+</html>
