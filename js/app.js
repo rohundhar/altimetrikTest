@@ -41,6 +41,7 @@ $(document).ready(function(){
 
     function generateParkingId(){
         var parkingId = generateId();
+        console.log(parkingId);
         document.getElementById('parkingId').innerHTML = parkingId;
     }
 
@@ -138,6 +139,7 @@ function getvalues(){
         },
         success : function (datas) {
             console.log(datas);
+            JSON.parse(datas);
             generateIssueTypes(datas);
         },
         error : function (data, errorThrown,status) {
