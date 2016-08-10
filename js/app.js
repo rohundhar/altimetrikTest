@@ -37,18 +37,19 @@ $(document).ready(function(){
          
     });
     var access_token;
-    console.log("innerHTML test 7");
+    console.log("innerHTML test 8");
 
-    function generateParkingId(){
-        var parkingId = generateId();
-        console.log("Parking iD is:"+parkingId);
-        document.getElementById('parkingId').innerHTML = parkingId;
-    }
+
 
     //document.querySelector('.parkingId').innerHTML = String(parkingId);
 
 
 });
+function generateParkingId(){
+    var parkingId = generateId();
+    console.log("Parking iD is:"+parkingId);
+    document.getElementById('parkingId').innerHTML = parkingId;
+}
 function generateId(){
         var id = Math.floor((Math.random() * 3986371923));
         return id;
