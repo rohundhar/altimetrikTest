@@ -38,7 +38,7 @@ $(document).ready(function(){
          
     });
 
-    console.log("innerHTML test 14");
+    console.log("innerHTML test 15");
     var access_token;
     //document.querySelector('.parkingId').innerHTML = String(parkingId);
 
@@ -85,6 +85,7 @@ function upsertCase(type, description){
             url: 'https://sfdc-cors.herokuapp.com/services/apexrest/alti_snapin/FieldCase',
             data : caseInfoJson,
             success : function (dataa) {
+                dataa = JSON.parse(dataa);
                 console.log(dataa);
                 sessionStorage.setItem("case_id", dataa);
                 location.href='../pages/serviceticket.html'
