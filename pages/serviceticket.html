@@ -50,11 +50,13 @@
         liveagent.addCustomDetail("Case Number", case_id);
 
 
+
+//liveagent.findOrCreate("Case").map("Subject","Case Subject",true,false,true).map("Status","Case Status",false,false,true).saveToTranscript("CaseId").showOnCreate();
         /* This does a non-exact search on cases by the value of the "Case Subject" custom detail.
             If no results are found, it will create a case and set the case's subject and status
             The case that's found or created will be associated to the chat and the case will open in
             the Console for the agent when the chat is accepted */
-        liveagent.findOrCreate("Case").map("Parking_Id__c","Parking Id",true,true,false);
+        liveagent.findOrCreate("Case").map("Parking_Id__c","Parking Id",true,true,false).saveToTranscript("CaseId").showOnCreate();
 
 
         liveagent.findOrCreate("Case").map("CaseNumber", "Case Number", true, true, false).saveToTranscript("CaseId").showOnCreate();
