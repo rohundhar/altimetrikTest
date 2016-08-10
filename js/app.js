@@ -108,6 +108,19 @@ function loginSalesforce(){
             }
     });
 }
+function generateIssueTypes(typeData){
+    for (var i = 0; i < typeData.length; i++){
+        var x = document.createElement("OPTION");
+        x.setAttribute("value", "issuetype");
+
+        var t = document.createTextNode(typeData[i]);
+
+        x.appendChild(t);
+
+        document.getElementById("issuetype").appendChild(x);
+    }
+
+}
 function getvalues(){
     $.ajax({
 
@@ -124,6 +137,7 @@ function getvalues(){
         },
         success : function (datas) {
             console.log(datas);
+            generateIssueTypes(datas);
         },
         error : function (data, errorThrown,status) {
             $('#token').text('ERROR: ' + data);
