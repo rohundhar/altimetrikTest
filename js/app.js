@@ -109,6 +109,7 @@ function loginSalesforce(){
     });
 }
 function generateIssueTypes(typeData){
+    console.log(typeData.length);
     for (var i = 0; i < typeData.length; i++){
         var x = document.createElement("OPTION");
         x.setAttribute("value", "issuetype");
