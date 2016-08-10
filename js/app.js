@@ -7,7 +7,6 @@ $(document).ready(function(){
     $("#refundmsg").css("display", "none");
     $("#newparkspace").css("display", "none");
     $("#theratings").css("display", "none");
-    $("#chatWindow").css("display", "none");
     $("#ratebtn").click(function(){
          $("#rateparking").css("display", "block");
     });
