@@ -1,4 +1,5 @@
-var parkingId = 10;
+var parkingId;
+
 $(document).ready(function(){
     $("#rateparking").css("display", "none");
     $("#reportparking").css("display", "none");
@@ -47,6 +48,7 @@ $(document).ready(function(){
 function generateParkingId(){
         //parkingId = generateId();
         //parkingId = "FP"+parkingId;
+        parkingId = sessionStorage.getItem("parkingId");
         console.log("Parking iD is:"+parkingId);
         document.getElementById('parkingId').innerHTML = parkingId;
 }
@@ -63,6 +65,7 @@ function upsertCase(type, description){
         parkingId = generateId();
         parkingId = "FP"+parkingId;
         console.log("Parking iD is:"+parkingId);
+        sessionStorage.setItem("parkingId", parkingId);
 
         var caseInfo = {
             "description" : description,
