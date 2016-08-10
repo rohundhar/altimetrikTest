@@ -37,7 +37,7 @@ $(document).ready(function(){
          
     });
     var access_token;
-    console.log("innerHTML test 5");
+    console.log("innerHTML test 6");
 
     function generateParkingId(){
         var parkingId = generateId();
