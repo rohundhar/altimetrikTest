@@ -38,12 +38,12 @@ $(document).ready(function(){
     });
     var parkingId;
     var access_token;
-    console.log("new test");
+    console.log("innerHTML test");
 
 
 
-    document.querySelector('.parkingId').innerHTML = String(parkingId);
-    //document.getElementById('parkingId') = parkingId;
+    //document.querySelector('.parkingId').innerHTML = String(parkingId);
+    document.getElementById('parkingId') = String(parkingId);
 
 
 });
