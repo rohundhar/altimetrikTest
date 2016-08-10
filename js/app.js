@@ -37,6 +37,7 @@ $(document).ready(function(){
          
     });
     var access_token;
+    var parkingId;
     console.log("innerHTML test 9");
 
 
@@ -46,7 +47,8 @@ $(document).ready(function(){
 
 });
 function generateParkingId(){
-    var parkingId = generateId();
+    parkingId = generateId();
+    parkingId = "FP"+parkingId;
     console.log("Parking iD is:"+parkingId);
     document.getElementById('parkingId').innerHTML = parkingId;
 }
