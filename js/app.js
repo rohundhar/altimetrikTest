@@ -50,7 +50,7 @@ function generateParkingId(){
     //parkingId = generateId();
     //parkingId = "FP"+parkingId;
     console.log("Parking iD is:"+parkingId);
-    document.getElementById('parkingId').innerHTML = JSON.stringify(parkingId);
+    document.getElementById('parkingId').innerHTML = String(parkingId);
 }
 function generateId(){
         console.log("ID GENERATED");
@@ -62,6 +62,8 @@ function upsertCase(type, description){
         console.log("description from html: "+description);
         parkingId = generateId();
         parkingId = "FP"+parkingId;
+        console.log("Parking iD is:"+parkingId);
+
         var caseInfo = {
             "description" : description,
             "status" : "unresolved",
