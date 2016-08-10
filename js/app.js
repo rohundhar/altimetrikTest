@@ -38,7 +38,7 @@ $(document).ready(function(){
     });
     var access_token;
     var parkingId;
-    console.log("innerHTML test 9");
+    console.log("innerHTML test 10");
 
 
 
@@ -47,8 +47,8 @@ $(document).ready(function(){
 
 });
 function generateParkingId(){
-    parkingId = generateId();
-    parkingId = "FP"+parkingId;
+    //parkingId = generateId();
+    //parkingId = "FP"+parkingId;
     console.log("Parking iD is:"+parkingId);
     document.getElementById('parkingId').innerHTML = parkingId;
 }
@@ -61,6 +61,7 @@ function upsertCase(type, description){
         console.log("type from html: "+type);
         console.log("description from html: "+description);
         parkingId = generateId();
+        parkingId = "FP"+parkingId;
         var caseInfo = {
             "description" : description,
             "status" : "unresolved",
