@@ -38,19 +38,18 @@ $(document).ready(function(){
          
     });
 
-    console.log("innerHTML test 13");
+    console.log("innerHTML test 14");
     var access_token;
-    function generateParkingId(){
-        //parkingId = generateId();
-        //parkingId = "FP"+parkingId;
-        console.log("Parking iD is:"+parkingId);
-        document.getElementById('parkingId').innerHTML = parkingId;
-    }
-
     //document.querySelector('.parkingId').innerHTML = String(parkingId);
 
 
 });
+function generateParkingId(){
+        //parkingId = generateId();
+        //parkingId = "FP"+parkingId;
+        console.log("Parking iD is:"+parkingId);
+        document.getElementById('parkingId').innerHTML = parkingId;
+}
 
 function generateId(){
         console.log("ID GENERATED");
